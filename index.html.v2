@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dos Clips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        iframe {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .submission-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            display: inline-block;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .submission-box a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .emoji-bar {
+            margin-top: 30px;
+            font-size: 24px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Dos Clips!</h1>
+
+    <p>Notice: For privacy reasons I will not be including any personal information other than a unique identifier tied to my university.</p>
+
+    <p>This website is a university project owned by student ID 35632345.</p>
+
+    <p><strong>Today’s worst gaming clip:</strong></p>
+
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/evfNH1rLk88" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+
+    <div class="submission-box">
+        <h3>Submit Your Own Clip</h3>
+        <p>Got a hilarious gaming fail? Submit it through our Google Form:</p>
+        <a href="https://forms.gle/your-google-form-link" target="_blank">Submit via Google Forms</a>
+    </div>
+
+    <div class="emoji-bar">
+        <!-- Emoji reaction bar placeholder -->
+        <p>React to this clip: 😆 😱 😬 🤯 🤦</p>
+        <!-- You can later turn these emojis into clickable buttons using JavaScript -->
+    </div>
+
+    <footer>
+        <p>© 2025 Dos Clips. Owner: 35632345. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
