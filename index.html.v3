@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dos Clips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            background-color: purple;
+            color: white;
+        }
+        iframe {
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .submission-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            display: inline-block;
+            max-width: 600px;
+            width: 90%;
+            color: black;
+        }
+        .submission-box a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        .reaction-buttons {
+            margin-top: 30px;
+        }
+        .reaction-buttons button {
+            font-size: 20px;
+            padding: 10px 25px;
+            margin: 0 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+            background-color: #333;
+            transition: background-color 0.3s;
+            user-select: none;
+        }
+        .reaction-buttons button:hover {
+            background-color: #555;
+        }
+        .reaction-buttons button.active-like {
+            background-color: #4caf50; /* green */
+        }
+        .reaction-buttons button.active-dislike {
+            background-color: #f44336; /* red */
+        }
+        .reaction-count {
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Dos Clips!</h1>
+
+    <p>Notice: For privacy reasons I will not be including any personal information other than a unique identifier tied to my university.</p>
+
+    <p>This website is a university project owned by student ID 35632345.</p>
+
+    <p><strong>Today’s worst gaming clip:</strong></p>
+
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/evfNH1rLk88" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+
+    <div class="submission-box">
+        <h3>Submit Your Own Clip</h3>
+        <p>Got a hilarious gaming fail? Submit it through our Google Form:</p>
+        <a href="https://forms.gle/your-google-form-link" target="_blank">Submit via Google Forms</a>
+    </div>
+
+    <div class="reaction-buttons">
+        <button id="like-btn">👍 Like <span id="like-count" class="reaction-count">0</span></button>
+        <button id="dislike-btn">👎 Dislike <span id="dislike-count" class="reaction-count">0</span></button>
+    </div>
+
+    <footer>
+        <p>© 2025 Dos Clips. Owner: 35632345. All Rights Reserved.</p>
+    </footer>
+
+<script>
+  // Initialize or get counts from localStorage
+  const likeCountElem = document.getElementById('like-count');
+  const dislikeCountElem = document.getElementById('dislike-count');
+  const likeBtn = document.getElementById('like-btn');
+  const dislikeBtn = document.getElementById('dislike-btn');
+
+  // Retrieve counts or initialize to zero
+  let likes = parseInt(localStorage.getItem('likes')) || 0;
+  let dislikes = parseInt(localStorage.getItem('dislikes')) || 0;
+
+  // Retrieve user vote if any ('like' or 'dislike')
+  let userVote = localStorage.getItem('userVote'); 
+
+  // Update counts on page
+  likeCountElem.textContent = likes;
+  dislikeCountElem.textContent = dislikes;
+
+  // Update button active states
+  function updateButtonStates() {
+    if (userVote === 'like') {
+      likeBtn.classList.add('active-like');
+      dislikeBtn.classList.remove('active-dislike');
+    } else if (userVote === 'dislike') {
+      dislikeBtn.classList.add('active-dislike');
+      likeBtn.classList.remove('active-like');
+    } else {
+      likeBtn.classList.remove('active-like');
+      dislikeBtn.classList.remove('active-dislike');
+    }
+  }
+  updateButtonStates();
+
+  // Handle like click
+  likeBtn.addEventListener('click', () => {
+    if (userVote === 'like') {
+      // Undo like
+      likes--;
+      userVote = null;
+    } else {
+      // If previously disliked, remove dislike first
+      if (userVote === 'dislike') {
+        dislikes--;
+      }
+      likes++;
+      userVote = 'like';
+    }
+    saveAndUpdate();
+  });
+
+  // Handle dislike click
+  dislikeBtn.addEventListener('click', () => {
+    if (userVote === 'dislike') {
+      // Undo dislike
+      dislikes--;
+      userVote = null;
+    } else {
+      // If previously liked, remove like first
+      if (userVote === 'like') {
+        likes--;
+      }
+      dislikes++;
+      userVote = 'dislike';
+    }
+    saveAndUpdate();
+  });
+
+  // Save to localStorage and update UI
+  function saveAndUpdate() {
+    localStorage.setItem('likes', likes);
+    localStorage.setItem('dislikes', dislikes);
+    localStorage.setItem('userVote', userVote);
+
+    likeCountElem.textContent = likes;
+    dislikeCountElem.textContent = dislikes;
+    updateButtonStates();
+  }
+</script>
+
+</body>
+</html>
