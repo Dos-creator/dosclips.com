@@ -3,7 +3,7 @@
   Version: 4
   Description: A fun, simple site for sharing gaming clips with an embedded YouTube player,
   submission form, and like/dislike functionality using JavaScript and localStorage.
-  Student ID: 35632345
+  Project by Dos
 -->
 
 <!DOCTYPE html>
@@ -88,7 +88,7 @@
 
     <p>Notice: For privacy reasons I will not be including any personal information other than a unique identifier tied to my university.</p>
 
-    <p>This website is a university project owned by student ID 35632345.</p>
+    <p>This website is a university project owned by Dos.</p>
 
     <p><strong>Today’s gaming clip:</strong></p>
 
@@ -113,7 +113,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Dos Clips. Owner: 35632345. All Rights Reserved.</p>
+        <p>© 2025 Dos Clips. Owner: Dos. All Rights Reserved.</p>
     </footer>
 
 <!-- This Script constructs the like and dislike buttons -->
