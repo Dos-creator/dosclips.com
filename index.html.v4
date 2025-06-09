@@ -94,7 +94,7 @@
 
   <!-- This part changes the video link make sure to change the src function -->
     <iframe width="560" height="315" 
-        src="VIDEO_FIlE" 
+        src="http://VIDEO_FIlE" 
         title="YouTube video player" frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
